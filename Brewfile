@@ -1,0 +1,29 @@
+brew "ripgrep"
+brew "mas"
+brew "fish"
+brew "rclone"
+brew "jq"
+brew "ffmpeg-full"
+brew "btop"
+brew "lua"
+brew "mpv"
+brew "openjdk@17"
+brew "unar"
+
+
+cask "kitty"
+cask "brave-browser"
+cask "discord"
+cask "heroic"
+cask "hammerspoon"
+cask "raycast"
+cask "visual-studio-code"
+cask "stats"
+cask "obs"
+cask "middleclick"
+cask "quickrecorder"
+cask "iina"
+cask "font-hack-nerd-font"
+
+
+mas "LINE", id: 539883307

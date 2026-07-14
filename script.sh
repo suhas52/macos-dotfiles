@@ -1,5 +1,13 @@
-#!/bin/bash
-for dir in .config/*; do
+#!/usr/bin/env bash
+set -euo pipefail
+
+mkdir -p "$HOME/.config"
+
+brew bundle --file="$PWD/Brewfile"
+
+for dir in "$PWD"/.config/*; do
+    [ -e "$dir" ] || continue
+
     name=$(basename "$dir")
-    ln -s "$PWD/.config/$name" "$HOME/.config/$name"
+    ln -sfn "$dir" "$HOME/.config/$name"
 done
