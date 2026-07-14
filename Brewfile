@@ -9,7 +9,7 @@ brew "lua"
 brew "mpv"
 brew "openjdk@17"
 brew "unar"
-
+brew "tree"
 
 cask "kitty"
 cask "brave-browser"
