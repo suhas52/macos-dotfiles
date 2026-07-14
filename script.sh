@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
+ssh-keygen
+git config --global user.email "suhasedu991@gmail.com"
+git config --global user.name "suhas52"
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo 'eval "$('"$(command -v brew)"' shellenv)"' >> ~/.bashrc
