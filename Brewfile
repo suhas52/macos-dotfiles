@@ -22,8 +22,7 @@ cask "stats"
 cask "obs"
 cask "middleclick"
 cask "quickrecorder"
-cask "iina"
 cask "font-hack-nerd-font"
-
+cask "vlc"
 
 mas "LINE", id: 539883307
