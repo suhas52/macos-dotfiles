@@ -1,3 +1,5 @@
+tap "jurplel/tap"
+
 brew "ripgrep"
 brew "mas"
 brew "fish"
@@ -24,5 +26,6 @@ cask "middleclick"
 cask "quickrecorder"
 cask "font-hack-nerd-font"
 cask "vlc"
+cask "instant-space-switcher"
 
 mas "LINE", id: 539883307
