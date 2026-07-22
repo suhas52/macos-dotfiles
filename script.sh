@@ -11,6 +11,8 @@ mkdir -p "$HOME/.config"
 
 brew bundle --file="$PWD/Brewfile"
 
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
+
 for dir in "$PWD"/.config/*; do
     [ -e "$dir" ] || continue
 

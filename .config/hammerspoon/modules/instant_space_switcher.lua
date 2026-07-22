@@ -1,27 +1,47 @@
 local M = {}
 
+local tap
+
 function M.start()
-    M.tap = hs.eventtap.new({
-        hs.eventtap.event.types.otherMouseDown,
-        hs.eventtap.event.types.otherMouseUp,
-    }, function(event)
-        local button = event:getProperty(
-            hs.eventtap.event.properties.mouseEventButtonNumber
-        )
-        local flags = event:getFlags()
+    if tap then
+        tap:stop()
+    end
 
-        if flags.cmd and (button == 3 or button == 4) then
-            if event:getType() == hs.eventtap.event.types.otherMouseDown then
-                hs.execute('/usr/bin/open -g "instantspaceswitcher://' ..
-                    (button == 3 and "left" or "right") .. '"')
+    tap = hs.eventtap.new(
+        { hs.eventtap.event.types.otherMouseDown },
+        function(e)
+            local button = e:getProperty(
+                hs.eventtap.event.properties.mouseEventButtonNumber
+            )
+            local flags = e:getFlags()
+
+            -- Only trigger when Command is held
+            if not flags.cmd then
+                return false
             end
-            return true
+
+            if button == 3 then
+                hs.eventtap.keyStroke({"ctrl"}, "j", 0)
+                return true
+            elseif button == 4 then
+                hs.eventtap.keyStroke({"ctrl"}, "k", 0)
+                return true
+            end
+
+            return false
         end
+    )
 
-        return false
-    end)
+    tap:start()
+    hs.printf("space_mouse: started")
+end
 
-    M.tap:start()
+function M.stop()
+    if tap then
+        tap:stop()
+        tap = nil
+        hs.printf("space_mouse: stopped")
+    end
 end
 
 return M

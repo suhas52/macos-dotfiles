@@ -2,7 +2,7 @@ local M = {}
 
 local brightness = "/Users/suhas/.local/repos/brightness/brightness.arm64"
 
-local high = 0.7
+local high = 0.6
 local low = 0.45
 
 local function set(level)
